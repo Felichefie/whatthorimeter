@@ -87,23 +87,19 @@ void TareaADC( void * pvParameters ){
   Serial.println("");
   
   while(true){
-    if(isConnected == true){
-      v_instant += readVoltage();
-      i_instant += readCurrent();
-      p_instant += getPower(v, i);
-      delay(INTEGRATION_MS);
-      if(samples == INTEGRATION_SAMPLES){
-        v = v_instant / INTEGRATION_SAMPLES;
-        i = i_instant / INTEGRATION_SAMPLES;
-        p = p_instant / INTEGRATION_SAMPLES;
-        energy = getEnergy(p, energy);
-        preferences.putDouble("WH", energy);
-        samples = 0; v_instant = 0;
-        i_instant = 0; p_instant = 0;
-      }
-      samples++;
-    }else{
-      delay(INTEGRATION_MS);
+    v_instant += readVoltage();
+    i_instant += readCurrent();
+    p_instant += getPower(v, i);
+    delay(INTEGRATION_MS);
+    if(samples == INTEGRATION_SAMPLES){
+      v = v_instant / INTEGRATION_SAMPLES;
+      i = i_instant / INTEGRATION_SAMPLES;
+      p = p_instant / INTEGRATION_SAMPLES;
+      energy = getEnergy(p, energy);
+      preferences.putDouble("WH", energy);
+      samples = 0; v_instant = 0;
+      i_instant = 0; p_instant = 0;
     }
+    samples++;
   }
 }

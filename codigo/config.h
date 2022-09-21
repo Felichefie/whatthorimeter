@@ -6,7 +6,12 @@ const int SECONDS = 60;
 const int INTEGRATION_MS = 500;
 const int INTEGRATION_SAMPLES = 10;
 
-#define THINGNAME "evis_monitor"
+#define THINGNAME "vehiculo1"
+#define TEAM_NUMBER 1
+
+//#define THINGNAME "vehiculo2"
+//#define TEAM_NUMBER 2
+
 #define AWS_IOT_PUBLISH_TOPIC   "energia"
 #define AWS_IOT_SUBSCRIBE_TOPIC "energia"
 #define RESET_ENERGY "reset energy"

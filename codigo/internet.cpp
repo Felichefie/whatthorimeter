@@ -88,7 +88,7 @@ void publishMessage(float voltage, float current, float power, float energy){
   data["current"] = current;
   data["power"] = power;
   data["energy"] = energy;
-  data["team"] = 1;
+  data["team"] = TEAM_NUMBER;
   
   char jsonBuffer[512];
   serializeJson(doc, jsonBuffer); // print to client
